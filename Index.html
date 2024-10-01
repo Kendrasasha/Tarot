@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarot Spinning Wheel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            flex-direction: column;
+        }
+
+        .wheel-container {
+            position: relative;
+            width: 550px;
+            height: 550px;
+            border: 10px solid #333;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .wheel {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            transform-origin: center;
+            transition: transform 4s ease-out;
+        }
+
+        .card {
+            position: absolute;
+            width: 120px; /* Increase the width */
+            height: 180px; /* Increase the height */
+            left: calc(50% - 60px); /* Center the cards horizontally */
+            top: 50px; /* Move the cards further from the center */
+            transform-origin: bottom center;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .center {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: #333;
+            border-radius: 50%;
+            top: calc(50% - 50px);
+            left: calc(50% - 50px);
+            z-index: 2;
+        }
+
+        .pointer {
+            position: absolute;
+            top: -25px;
+            left: calc(50% - 10px);
+            width: 20px;
+            height: 50px;
+            background-color: red;
+            clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+            z-index: 3;
+        }
+
+        #advice {
+            margin-top: 20px;
+            font-size: 20px;
+            text-align: center;
+            width: 400px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wheel-container">
+        <div class="pointer"></div>
+        <div id="wheel" class="wheel">
+            <!-- Tarot cards displayed on the wheel -->
+            <div class="card" style="transform: rotate(0deg)">
+                <img src="C:/Tarot cards/the_fool.png" alt="The Fool">
+            </div>
+            <div class="card" style="transform: rotate(16.36deg)">
+                <img src="C:/Tarot cards/the_magician.png" alt="The Magician">
+            </div>
+            <div class="card" style="transform: rotate(32.72deg)">
+                <img src="C:/Tarot cards/the_high_priestess.png" alt="The High Priestess">
+            </div>
+            <div class="card" style="transform: rotate(49.08deg)">
+                <img src="C:/Tarot cards/the_empress.png" alt="The Empress">
+            </div>
+            <div class="card" style="transform: rotate(65.44deg)">
+                <img src="C:/Tarot cards/the_emperor.png" alt="The Emperor">
+            </div>
+            <div class="card" style="transform: rotate(81.8deg)">
+                <img src="C:/Tarot cards/the_hierophant.png" alt="The Hierophant">
+            </div>
+            <div class="card" style="transform: rotate(98.16deg)">
+                <img src="C:/Tarot cards/the_lovers.png" alt="The Lovers">
+            </div>
+            <div class="card" style="transform: rotate(114.52deg)">
+                <img src="C:/Tarot cards/the_chariot.png" alt="The Chariot">
+            </div>
+            <div class="card" style="transform: rotate(130.88deg)">
+                <img src="C:/Tarot cards/strength.png" alt="Strength">
+            </div>
+            <div class="card" style="transform: rotate(147.24deg)">
+                <img src="C:/Tarot cards/the_hermit.png" alt="The Hermit">
+            </div>
+            <div class="card" style="transform: rotate(163.6deg)">
+                <img src="C:/Tarot cards/wheel_of_fortune.png" alt="Wheel of Fortune">
+            </div>
+            <div class="card" style="transform: rotate(179.96deg)">
+                <img src="C:/Tarot cards/justice.png" alt="Justice">
+            </div>
+            <div class="card" style="transform: rotate(196.32deg)">
+                <img src="C:/Tarot cards/the_hanged_man.png" alt="The Hanged Man">
+            </div>
+            <div class="card" style="transform: rotate(212.68deg)">
+                <img src="C:/Tarot cards/death.png" alt="Death">
+            </div>
+            <div class="card" style="transform: rotate(229.04deg)">
+                <img src="C:/Tarot cards/temperance.png" alt="Temperance">
+            </div>
+            <div class="card" style="transform: rotate(245.4deg)">
+                <img src="C:/Tarot cards/the_devil.png" alt="The Devil">
+            </div>
+            <div class="card" style="transform: rotate(261.76deg)">
+                <img src="C:/Tarot cards/the_tower.png" alt="The Tower">
+            </div>
+            <div class="card" style="transform: rotate(278.12deg)">
+                <img src="C:/Tarot cards/the_star.png" alt="The Star">
+            </div>
+            <div class="card" style="transform: rotate(294.48deg)">
+                <img src="C:/Tarot cards/the_moon.png" alt="The Moon">
+            </div>
+            <div class="card" style="transform: rotate(310.84deg)">
+                <img src="C:/Tarot cards/the_sun.png" alt="The Sun">
+            </div>
+            <div class="card" style="transform: rotate(327.2deg)">
+                <img src="C:/Tarot cards/judgement.png" alt="Judgement">
+            </div>
+            <div class="card" style="transform: rotate(343.56deg)">
+                <img src="C:/Tarot cards/the_world.png" alt="The World">
+            </div>
+        </div>
+        <div class="center"></div>
+    </div>
+
+    <button onclick="spinWheel()">Spin the Wheel</button>
+    <div id="advice"></div>
+
+    <script>
+        const tarotCards = [
+            { name: 'The Fool', advice: 'Embrace new beginnings and adventure.' },
+            { name: 'The Magician', advice: 'You have all the tools to succeed.' },
+            { name: 'The High Priestess', advice: 'Trust your intuition.' },
+            { name: 'The Empress', advice: 'Nurture your creativity.' },
+            { name: 'The Emperor', advice: 'Take control and lead with authority.' },
+            { name: 'The Hierophant', advice: 'Seek guidance from tradition.' },
+            { name: 'The Lovers', advice: 'Make important choices in your relationships.' },
+            { name: 'The Chariot', advice: 'Stay focused and determined in your pursuits.' },
+            { name: 'Strength', advice: 'You have the inner strength to overcome challenges.' },
+            { name: 'The Hermit', advice: 'Seek solitude to reflect and grow.' },
+            { name: 'Wheel of Fortune', advice: 'Expect changes; life is a cycle.' },
+            { name: 'Justice', advice: 'Seek fairness and balance in your decisions.' },
+            { name: 'The Hanged Man', advice: 'Look at things from a new perspective.' },
+            { name: 'Death', advice: 'Endings are necessary for new beginnings.' },
+            { name: 'Temperance', advice: 'Find balance and moderation in life.' },
+            { name: 'The Devil', advice: 'Be aware of unhealthy attachments or temptations.' },
+            { name: 'The Tower', advice: 'Change is coming; embrace the upheaval.' },
+            { name: 'The Star', advice: 'Have hope and stay optimistic.' },
+            { name: 'The Moon', advice: 'Things may be unclear; trust your intuition.' },
+            { name: 'The Sun', advice: 'Success and positivity are in your future.' },
+            { name: 'Judgement', advice: 'Reflect on your actions and make necessary changes.' },
+            { name: 'The World', advice: 'You have reached a successful completion.' }
+        ];
+
+        let wheel = document.getElementById('wheel');
+        let adviceElement = document.getElementById('advice');
+        let isSpinning = false;
+
+        function spinWheel() {
+            if (isSpinning) return;
+            isSpinning = true;
+
+            const randomDegree = Math.floor(Math.random() * 360) + 1440; // Spins at least 4 times
+            wheel.style.transform = `rotate(${randomDegree}deg)`;
+
+            // Determine the tarot card and show advice
+            setTimeout(() => {
+                const finalDegree = randomDegree % 360;
+                const selectedCardIndex = Math.floor(finalDegree / 16.36); // 22 cards, each occupies 16.36 degrees
+                const selectedCard = tarotCards[selectedCardIndex];
+                adviceElement.innerText = `${selectedCard.name}: ${selectedCard.advice}`;
+                isSpinning = false;
+            }, 4000); // Matches the duration of the spin
+        }
+    </script>
+</body>
+</html>
